@@ -13,7 +13,7 @@ func TestAuth(t *testing.T) {
 			want    string
 			wantErr error
 	  }{
-			"basic":           {input: http.Header{"Authorization": []string{"ApiKey Test-Key"}}, want: "Test-Key", wantErr: nil},
+			"basic":           {input: http.Header{"Authorization": []string{"ApiKey "}}, want: "Test-Key", wantErr: nil},
 			"no auth hedder":  {input: http.Header{" ": []string{"ApiKey Test-Key"}}, want: "", wantErr: ErrNoAuthHeaderIncluded},
 			"no key included": {input: http.Header{"Authorization": []string{"ApiKey"}}, want: "", wantErr: errors.New("malformed authorization_ eader")},
 	  }
